@@ -24,11 +24,11 @@ libhts: $(HTSDIR)/libhts$(DYLIB_EXT)
 	ln -sf ${R_PACKAGE_DIR}/lib/libhts$(DYLIB_EXT) \
 	    ${R_PACKAGE_DIR}/lib/$(SHLIB_LN)
 	@mkdir ${R_PACKAGE_DIR}/include
-	cp $(HTSDIR)/htslib/*h ${R_PACKAGE_DIR}/include/
+	cp $(HTSLIB_PUBLIC_HEADERS) ${R_PACKAGE_DIR}/include/
 
 include $(HTSDIR)/htslib.mk
 
 clean: clean-htslib
-	rm -rf "${R_PACKAGE_DIR}/include" "${R_PACKAGE_DIR}/lib"
 	rm -f *.a *.o *.so *.dll *.dylib
 
+shlib-clean: clean
