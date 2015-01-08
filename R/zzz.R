@@ -12,7 +12,10 @@ pkgconfig <-
     result <- switch(match.arg(opt), PKG_CFLAGS={
         sprintf('-I"%s"', system.file("include", package="Rhtslib"))
     }, PKG_LIBS={
-        sprintf('-L"%s" -Wl,-rpath,"%s" -lhts -lz', patharch, patharch)
+        if(Sys.info()['sysname'] == "Linux") ## -rpath needed for Linux
+            sprintf('-L"%s" -Wl,-rpath,"%s" -lhts -lz', patharch, patharch)
+        else
+            sprintf('-L"%s" -lhts -lz', patharch)
     })
 
     cat(result)
