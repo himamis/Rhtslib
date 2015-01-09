@@ -12,11 +12,14 @@ pkgconfig <-
     result <- switch(match.arg(opt), PKG_CFLAGS={
         sprintf('-I"%s"', system.file("include", package="Rhtslib"))
     }, PKG_LIBS={
-        if(Sys.info()['sysname'] == "Linux") ## -rpath needed for Linux
-            sprintf('-L"%s" -Wl,-rpath,"%s" -lhts -lz', patharch, patharch)
-        else
-            sprintf('-L"%s" -lhts -lz', patharch)
-    })
+        switch(Sys.info()['sysname'], Linux={
+            sprintf('-L"%s" -Wl,-rpath,"%s" -lhts', patharch, patharch)
+        }, Darwin={
+            sprintf('-L"%s" -lhts', patharch)
+        }, Windows={
+            sprintf('-L"%s" -lhts', patharch)
+        }
+    )})
 
     cat(result)
 }
