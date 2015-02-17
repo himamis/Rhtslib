@@ -1,5 +1,5 @@
 HTSDIR=./htslib
-HTSLIB_LIBDIR="${R_PACKAGE_DIR}/lib/${R_ARCH}"
+HTSLIB_LIBDIR="${R_PACKAGE_DIR}/lib${R_ARCH}"
 HTSLIB_INCLUDEDIR="${R_PACKAGE_DIR}/include"
 
 R_CC=`"${R_HOME}/bin/R" CMD config CC`
