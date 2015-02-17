@@ -46,8 +46,7 @@ CONFIGURE_GEN_FILES= \
 ## clean-recursive in HTSDIR, since said recursive Makefiles specify
 ## what to clean
 clean:
-	rm -f *.a *.o *.so *.dll *.dylib
-	cd $(HTSDIR) && $(MAKE) clean-recursive && cd ..
-	rm -f $(CONFIGURE_GEN_FILES)
+	rm -f *.o *.a
+	cd $(HTSDIR) && $(MAKE) distclean-recursive && cd ..
 
 shlib-clean: clean
