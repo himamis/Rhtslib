@@ -18,7 +18,7 @@ Rhtslib.o: Rinstall
 # reinstalled
 Rinstall:
 	@mkdir -p $(HTSLIB_LIBDIR) $(HTSLIB_INCLUDEDIR)
-	cp "winlib/$(STATICLIBNAME)" "$(HTSLIB_LIBDIR)/libhts.a"
+	cp "winlib/$(STATICLIBNAME)" $(HTSLIB_LIBDIR)/libhts.a
 	cp $(HTSLIB_PUBLIC_HEADERS) "$(HTSLIB_INCLUDEDIR)"
 
 include $(HTSDIR)/htslib.mk
