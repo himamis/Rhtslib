@@ -1,0 +1,33 @@
+HTSDIR=./src/htslib
+#echo "$HTSDIR"
+HTSDIR_PATH="$(pwd)/src/htslib"
+echo "$HTSDIR_PATH"
+
+## architecture-indepent files
+cp tools/aclocal.m4 tools/config.guess tools/config.sub tools/depcomp \
+    tools/install-sh tools/missing tools/stamp-h1 "$HTSDIR"
+#cp -r tools/autom4ate.cache "$HTSDIR"
+
+HTSARCH=
+if test "$R_ARCH" = "/x64"; then
+    HTSARCH="x64"
+else
+    HTSARCH="i386"
+fi
+echo "HTSARCH $HTSARCH"
+
+sed "s|@HTSDIR_PATH@|$HTSDIR_PATH|" "tools/$HTSARCH/config.status" \
+    > "$HTSDIR/config.status"
+
+sed "s|@HTSDIR_PATH@|$HTSDIR_PATH|" "tools/$HTSARCH/Makefile" \
+    > "$HTSDIR/Makefile"
+sed "s|@HTSDIR_PATH@|$HTSDIR_PATH|" "tools/$HTSARCH/test_Makefile" \
+    > "$HTSDIR/test/Makefile"
+sed "s|@HTSDIR_PATH@|$HTSDIR_PATH|" "tools/$HTSARCH/lib_Makefile" \
+    > "$HTSDIR/lib/Makefile"
+cp "tools/$HTSARCH/config.h" "$HTSDIR/config.h"
+timeout 3
+for fl in touch Makefile config.h lib/Makefile test/Makefile ; do
+    touch "$HTSDIR/$fl"
+done
+
