@@ -13,11 +13,11 @@ pkgconfig <-
         sprintf('-I"%s"', system.file("include", package="Rhtslib"))
     }, PKG_LIBS={
         switch(Sys.info()['sysname'], Linux={
-            sprintf('-L"%s" -Wl,-rpath,"%s" -lhts', patharch, patharch)
+            sprintf('-L"%s" -Wl,-rpath,"%s" -lhts -lz', patharch, patharch)
         }, Darwin={
-            sprintf('-L"%s" -lhts', patharch)
+            sprintf('-L"%s" -lhts -lz', patharch)
         }, Windows={
-            sprintf('-L"%s" -lhts', patharch)
+            sprintf('-L"%s" -lhts -lzbioc', patharch)
         }
     )})
 
