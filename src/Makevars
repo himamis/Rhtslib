@@ -4,6 +4,7 @@ HTSLIB_INCLUDEDIR="${R_PACKAGE_DIR}/include"
 
 R_CC=`"${R_HOME}/bin/R" CMD config CC`
 R_CFLAGS=`"${R_HOME}/bin/R" CMD config CFLAGS`
+R_CPICFLAGS=`"${R_HOME}/bin/R" CMD config CPICFLAGS`
 R_LDFLAGS=`"${R_HOME}/bin/R" CMD config LDFLAGS`
 R_CPPFLAGS=`"${R_HOME}/bin/R" CMD config CPPFLAGS`
 R_CPP=`"${R_HOME}/bin/R" CMD config CPP`
@@ -31,8 +32,8 @@ $(HTSDIR)/libhts.a:
         ## run ./htslib/configure
 	cd $(HTSDIR)/ && autoreconf -fi \
 	&& ./configure --disable-dependency-tracking \
-	CC="${R_CC}" CFLAGS="${R_CFLAGS}" LDFLAGS="${R_LDFLAGS}" \
-	CPPFLAGS="${R_CPPFLAGS}" CPP="${R_CPP}"
+	CC="${R_CC}" CFLAGS="${R_CFLAGS} ${R_CPICFLAGS}" \
+	LDFLAGS="${R_LDFLAGS}" CPPFLAGS="${R_CPPFLAGS}" CPP="${R_CPP}"
 	cd $(HTSDIR)/ && $(MAKE) libhts.a
 
 include $(HTSDIR)/htslib.mk
