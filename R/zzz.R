@@ -17,7 +17,7 @@ pkgconfig <-
         }, Darwin={
             sprintf('-L"%s" -lhts -lz', patharch)
         }, Windows={
-            sprintf('-L"%s" -lhts -lzbioc', patharch)
+            sprintf('-L"%s" -lhts', patharch)
         }
     )})
 
