@@ -1,7 +1,6 @@
 HTSDIR=./htslib
 HTSLIB_LIBDIR="${R_PACKAGE_DIR}/lib${R_ARCH}"
 HTSLIB_INCLUDEDIR="${R_PACKAGE_DIR}/include"
-#STATICLIBNAME=$(shell echo "$(R_ARCH)" | sed -e 's|/||' -e 's|^|libhts.a_|')
 
 .PHONY: all Rinstall
 
