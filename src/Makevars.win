@@ -1,7 +1,7 @@
 HTSDIR=./htslib
 HTSLIB_LIBDIR="${R_PACKAGE_DIR}/lib${R_ARCH}"
 HTSLIB_INCLUDEDIR="${R_PACKAGE_DIR}/include"
-STATICLIBNAME=$(shell echo "$(R_ARCH)" | sed -e 's|/||' -e 's|^|libhts.a_|')
+#STATICLIBNAME=$(shell echo "$(R_ARCH)" | sed -e 's|/||' -e 's|^|libhts.a_|')
 
 .PHONY: all Rinstall
 
@@ -18,7 +18,7 @@ Rhtslib.o: Rinstall
 # reinstalled
 Rinstall:
 	@mkdir -p $(HTSLIB_LIBDIR) $(HTSLIB_INCLUDEDIR)
-	cp "winlib/$(STATICLIBNAME)" $(HTSLIB_LIBDIR)/libhts.a
+	cp "winlib$(R_ARCH)/libhts.a" $(HTSLIB_LIBDIR)/libhts.a
 	cp $(HTSLIB_PUBLIC_HEADERS) "$(HTSLIB_INCLUDEDIR)"
 
 include $(HTSDIR)/htslib.mk
