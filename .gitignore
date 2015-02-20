@@ -1,5 +1,7 @@
 *.o
 src/htslib/version.h
+src-i386
+src-x64
 
 src/htslib/lib*.a
 lib*.dylib
