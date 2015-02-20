@@ -1,7 +1,7 @@
 *.o
 src/htslib/version.h
 
-lib*.a
+src/htslib/lib*.a
 lib*.dylib
 lib*.so
 lib*.so.*
