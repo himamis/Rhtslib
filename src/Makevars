@@ -30,10 +30,12 @@ Rinstall: $(HTSDIR)/libhts.a
 ## yes, need to 'cd' into $(HTSDIR) for each command
 $(HTSDIR)/libhts.a:
         ## run ./htslib/configure
+	@echo "running configuration..."
 	cd $(HTSDIR)/ && autoreconf -fi \
 	&& ./configure --disable-dependency-tracking \
 	CC="${R_CC}" CFLAGS="${R_CFLAGS} ${R_CPICFLAGS}" \
 	LDFLAGS="${R_LDFLAGS}" CPPFLAGS="${R_CPPFLAGS}" CPP="${R_CPP}"
+	@echo "buildling library..."
 	cd $(HTSDIR)/ && $(MAKE) libhts.a
 
 include $(HTSDIR)/htslib.mk

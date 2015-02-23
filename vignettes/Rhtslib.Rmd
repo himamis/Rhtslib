@@ -1,10 +1,13 @@
+<!--
+\usepackage[utf8]{inputenc}
 %\VignetteEngine{knitr::knitr}
 %\VignetteIndexEntry{Motivation and Use of Rhtslib}
+-->
 
 # Motivation and Use of Rhtslib
 
-- Author: Martin Morgan, [mtmorgan@fhcrc.org](mailto:mtmorgan@fhcrc.org)
-- Modification date: 17 August, 2014
+- Authors: [Nathaniel Hayden](mailto:nhayden@fredhutch.org), [Martin Morgan](mailto:mtmorgan@fhcrc.org)
+- Modification date: 20 February, 2015
 
 This package provides a compiled version of the C
 [`htslib`](http://www.htslib.org/) for high-throughput seqeunce
@@ -28,13 +31,22 @@ an explict user system dependency on `htslib` directly.
 Packages with C code should create a file `src/Makevars` with the
 following lines
 
-    PKG_CFLAGS+=$(shell echo 'Rhtslib::pkgconfig("PKG_CFLAGS")'|\
-        "${R_HOME}/bin/R" --vanilla --slave)
     PKG_LIBS+=$(shell echo 'Rhtslib::pkgconfig("PKG_LIBS")'|\
+        "${R_HOME}/bin/R" --vanilla --slave)
+
+and mention Rhtslib in the `LinkingTo` field of the DESCRIPTION file,
+e.g.,
+
+    LinkingTo: Rhtslib
+
+If LinkingTo is not available to you, add to the `src/Makevars` file
+the following lines
+
+    PKG_CPPFLAGS+=$(shell echo 'Rhtslib::pkgconfig("PKG_CPPFLAGS")'|\
         "${R_HOME}/bin/R" --vanilla --slave)
     
 In C or C++ code files, use standard techniques, e.g., `#include
-"htslib.h"`. Header files are available at
+"hts.h"`. Header files are available for perusal at
 
 ```{R headers}
 system.file(package="Rhtslib", "include")
@@ -42,7 +54,7 @@ system.file(package="Rhtslib", "include")
 
 ## Implementation notes
 
-The procedure above links to the _shared_ version of the htslib
-library. This will work on Linux, Mac, and Windows OS, but some tweaks
-may be needed on other platforms; please let
-[me](mailto:mtmorgan@fhcrc.org) know of incompatibilities.
+The procedure above links to the static library version of the htslib
+library. This will work on Linux, Mac OSX, and Windows, but some
+tweaks may be needed on other platforms; please notify
+[me](mailto:nhayden@fredhutch.org) of incompatibilities.
