@@ -1,5 +1,5 @@
 pkgconfig <-
-    function(opt = c("PKG_CFLAGS", "PKG_LIBS"))
+    function(opt = c("PKG_LIBS", "PKG_CPPFLAGS"))
 {
     path <- system.file("lib", package="Rhtslib", mustWork=TRUE)
     if (nzchar(.Platform$r_arch)) {
@@ -9,7 +9,7 @@ pkgconfig <-
     }
     patharch <- paste0(path, arch)
 
-    result <- switch(match.arg(opt), PKG_CFLAGS={
+    result <- switch(match.arg(opt), PKG_CPPFLAGS={
         sprintf('-I"%s"', system.file("include", package="Rhtslib"))
     }, PKG_LIBS={
         switch(Sys.info()['sysname'], Linux={
@@ -20,7 +20,7 @@ pkgconfig <-
         }, Windows={
             sprintf('-L"%s" -lhts -lpthread -lws2_32 %s',
                     patharch,
-                    capture.output(zlibbioc:::pkgconfig("PKG_LIBS_static")))
+                    capture.output(zlibbioc::pkgconfig("PKG_LIBS_static")))
         }
     )})
 
