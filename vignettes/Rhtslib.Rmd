@@ -1,8 +1,12 @@
 <!--
 \usepackage[utf8]{inputenc}
-%\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{Motivation and Use of Rhtslib}
+%% \VignetteEngine{knitr::knitr}
+%% \VignetteIndexEntry{Motivation and Use of Rhtslib}
 -->
+
+```{r style, echo = FALSE, results = 'asis'}
+BiocStyle::markdown()
+```
 
 # Motivation and Use of Rhtslib
 
