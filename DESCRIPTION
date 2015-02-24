@@ -16,7 +16,7 @@ License: Artistic-2.0 | file LICENSE
 LazyLoad: yes
 Imports: zlibbioc
 LinkingTo: zlibbioc
-Suggests: knitr
+Suggests: BiocStyle, knitr
 VignetteBuilder: knitr
 URL: http://www.htslib.org/
 biocViews: DataImport,  Sequencing
