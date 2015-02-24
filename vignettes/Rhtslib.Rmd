@@ -10,18 +10,19 @@ BiocStyle::markdown()
 
 # Motivation and Use of Rhtslib
 
-- Authors: [Nathaniel Hayden](mailto:nhayden@fredhutch.org), [Martin Morgan](mailto:mtmorgan@fhcrc.org)
+- Authors: [Nathaniel Hayden](mailto:nhayden@fredhutch.org), [Martin
+  Morgan](mailto:mtmorgan@fhcrc.org)
 - Modification date: 20 February, 2015
 
 This package provides a compiled version of the C
-[`htslib`](http://www.htslib.org/) for high-throughput seqeunce
+[`htslib`](http://www.htslib.org/) for high-throughput sequence
 analysis. It is primary useful to developers of other R packages who
 want to use the htslib facilities in the C code of their own packages.
 
 ## Motivation
 
 There are several advantages to using `Rhtslib`, rather than requiring
-an explict user system dependency on `htslib` directly.
+an explicit user system dependency on `htslib` directly.
 
 - Using `Rhtslib` means that your users (who are not always
   sophisticated system administrators) do not need to manually install
@@ -60,5 +61,5 @@ system.file(package="Rhtslib", "include")
 
 The procedure above links to the static library version of the htslib
 library. This will work on Linux, Mac OSX, and Windows, but some
-tweaks may be needed on other platforms; please notify
-[me](mailto:nhayden@fredhutch.org) of incompatibilities.
+tweaks may be needed on other platforms; please notify the maintainer
+of incompatibilities.
