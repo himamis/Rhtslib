@@ -14,10 +14,12 @@ BiocStyle::markdown()
   Morgan](mailto:mtmorgan@fhcrc.org)
 - Modification date: 20 February, 2015
 
-This package provides a compiled version of the C
-[`htslib`](http://www.htslib.org/) for high-throughput sequence
-analysis. It is primarily useful to developers of other R packages who
-want to use the htslib facilities in the C code of their own packages.
+This package provides a compiled version of the C <strong><a
+href="http://www.htslib.org/" target="_blank"><code
+style="font-size:150%">htslib</code></a></strong> for high-throughput
+sequence analysis. It is primarily useful to developers of other R
+packages who want to use the htslib facilities in the C code of their
+own packages.
 
 ## Motivation
 
