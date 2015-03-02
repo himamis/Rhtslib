@@ -13,12 +13,12 @@ pkgconfig <-
         sprintf('-I"%s"', system.file("include", package="Rhtslib"))
     }, PKG_LIBS={
         switch(Sys.info()['sysname'], Linux={
-            sprintf('-L"%s" -Wl,-rpath,"%s" -lhts -lz -lpthread',
+            sprintf('-L"%s" -Wl,-rpath,"%s" -lhts -lz -pthread',
                     patharch, patharch)
         }, Darwin={
-            sprintf('-L"%s" -lhts -lz -lpthread', patharch)
+            sprintf('-L"%s" -lhts -lz -pthread', patharch)
         }, Windows={
-            sprintf('-L"%s" -lhts -lpthread -lws2_32 %s',
+            sprintf('-L"%s" -lhts -pthread -lws2_32 "%s"',
                     patharch,
                     capture.output(zlibbioc::pkgconfig("PKG_LIBS_static")))
         }
