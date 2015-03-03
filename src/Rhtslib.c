@@ -13,7 +13,7 @@ R_CallMethodDef callMethods[] = {
     {NULL, NULL, 0}
 };
 
-void R_init_TestPackage(DllInfo *info)
+void R_init_Rhtslib(DllInfo *info)
 {
     R_registerRoutines(info, NULL, callMethods, NULL, NULL);
 }
