@@ -27,6 +27,11 @@ pkgconfig <-
     cat(result)
 }
 
+htsVersion <- function() {
+    vers <- .Call("Rhtslib_htslib_version", PACKAGE="Rhtslib")
+    message(vers)
+}
+
 .onAttach <-
     function(...)
 {
