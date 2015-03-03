@@ -67,7 +67,7 @@ Create a `src/Makevars.win` file with the following lines
 
 and a `src/Makevars` file with the following lines
 
-    RHTSLIB_LIB=`echo 'Rhtslib::pkgconfig("PKG_LIBS")'|\
+    RHTSLIB_LIBS=`echo 'Rhtslib::pkgconfig("PKG_LIBS")'|\
         "${R_HOME}/bin/R" --vanilla --slave)`
     PKG_LIBS=$(RHTSLIB_LIBS)
 
