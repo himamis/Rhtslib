@@ -31,8 +31,7 @@ Rinstall: $(HTSDIR)/libhts.a
 $(HTSDIR)/libhts.a:
         ## run ./htslib/configure
 	@echo "running configuration..."
-	cd $(HTSDIR)/ && autoreconf -fi \
-	&& ./configure --disable-dependency-tracking \
+	cd $(HTSDIR)/ && ./configure --disable-dependency-tracking \
 	CC="${R_CC}" CFLAGS="${R_CFLAGS} ${R_CPICFLAGS}" \
 	LDFLAGS="${R_LDFLAGS}" CPPFLAGS="${R_CPPFLAGS}" CPP="${R_CPP}"
 	@echo "buildling library..."
