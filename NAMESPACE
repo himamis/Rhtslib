@@ -2,4 +2,4 @@ useDynLib(Rhtslib, .registration=TRUE)
 
 import(zlibbioc)
 
-export(pkgconfig)
+export(pkgconfig, htsVersion)
