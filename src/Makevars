@@ -32,6 +32,7 @@ $(HTSDIR)/libhts.a:
         ## run ./htslib/configure
 	@echo "running configuration..."
 	cd $(HTSDIR)/ && ./configure --disable-dependency-tracking \
+	--prefix="${R_PACKAGE_DIR}" \
 	CC="${R_CC}" CFLAGS="${R_CFLAGS} ${R_CPICFLAGS}" \
 	LDFLAGS="${R_LDFLAGS}" CPPFLAGS="${R_CPPFLAGS}" CPP="${R_CPP}"
 	@echo "buildling library..."
