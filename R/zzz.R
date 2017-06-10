@@ -1,7 +1,7 @@
 pkgconfig <-
     function(opt = c("PKG_LIBS", "PKG_CPPFLAGS"))
 {
-    path <- system.file("lib", package="Rhtslib", mustWork=TRUE)
+    path <- system.file("libs", package="Rhtslib", mustWork=TRUE)
     if (nzchar(.Platform$r_arch)) {
         arch <- sprintf("/%s", .Platform$r_arch)
     } else {
